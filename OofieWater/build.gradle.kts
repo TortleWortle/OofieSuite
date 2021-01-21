@@ -18,10 +18,14 @@ repositories {
         name = "sk89q-repo"
         url = uri("https://maven.enginehub.org/repo")
     }
+    maven {
+        url = uri("https://repo.extendedclip.com/content/repositories/placeholderapi/")
+    }
 }
 
 dependencies {
     compileOnly(kotlin("stdlib"))
     compileOnly(group = "org.spigotmc", name = "spigot-api", version = "1.12.2-R0.1-SNAPSHOT")
     compileOnly(group = "com.sk89q.worldguard", name = "worldguard-legacy", version = "6.2")
+    compileOnly(group = "me.clip", name = "placeholderapi", version = "2.9.2")
 }

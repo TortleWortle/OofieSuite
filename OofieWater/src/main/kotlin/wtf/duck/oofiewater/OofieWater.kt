@@ -1,9 +1,7 @@
 package wtf.duck.oofiewater
 
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin
-import com.sk89q.worldguard.protection.flags.StateFlag
-import com.sk89q.worldguard.protection.flags.registry.FlagConflictException
-import com.sk89q.worldguard.protection.flags.registry.FlagRegistry
+import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.Material
@@ -20,7 +18,6 @@ import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 import java.util.*
-import kotlin.collections.HashMap
 
 var WorldGuardEnabled = false
 
@@ -38,11 +35,20 @@ class OofieWater : JavaPlugin(), Listener, CommandExecutor {
     }
 
     override fun onEnable() {
+        saveDefaultConfig()
+        shouldBroadcast = config.getBoolean("broadcastDeaths")
         server.pluginManager.registerEvents(this, this)
         getCommand("oofiewater").executor = this
-        server.scheduler.runTaskTimerAsynchronously(this, Runnable {
-            oofiedList.clear()
-        }, 20 * 60 * 1, 20 * 60 * 1) // clear every 10 minutes.
+        if (config.getBoolean("limitBroadcasts")) {
+            server.scheduler.runTaskTimerAsynchronously(
+                this,
+                Runnable {
+                    oofiedList.clear()
+                },
+                20 * config.getInt("broadcastTimeout").toLong(),
+                20 * 60 * config.getInt("broadcastTimeout").toLong()
+            )
+        }
     }
 
     @EventHandler
@@ -55,15 +61,13 @@ class OofieWater : JavaPlugin(), Listener, CommandExecutor {
         if (event.player.gameMode == GameMode.SPECTATOR) return
         if (event.player.isInsideVehicle) return
 
-        // TODO: only unique message to player
-        // broadcast generic message
-        // only broadcast once per player per minute (reset list every minute)
         val hasperm = event.player.hasPermission("oofiewater.scuba")
         if (event.player.location.block.type == Material.WATER || event.player.location.block.type == Material.STATIONARY_WATER) {
             if (WorldGuardEnabled) {
-                val set = WorldGuardPlugin.inst().getRegionManager(event.player.world).getApplicableRegions(event.player.location)
+                val set = WorldGuardPlugin.inst().getRegionManager(event.player.world)
+                    .getApplicableRegions(event.player.location)
                 val localPlayer = WorldGuardPlugin.inst().wrapPlayer(event.player)
-                if(!set.testState(localPlayer, OofieWaterFlag)) {
+                if (!set.testState(localPlayer, OofieWaterFlag)) {
                     return // return if oofiewater flag is deny
                 }
             }
@@ -85,7 +89,6 @@ class OofieWater : JavaPlugin(), Listener, CommandExecutor {
     }
 
     private fun sendDeathMessage(event: PlayerMoveEvent) {
-//        val count = c[event.player.uniqueId] ?: 0
 //        val format = when (count) {
 //            0 -> "%s realised water is oofie."
 //            1 -> "%s, I'm serious, it's oofie."
@@ -99,22 +102,15 @@ class OofieWater : JavaPlugin(), Listener, CommandExecutor {
 //            9 -> "The water kills you, %s."
 //            else -> null
 //        }
-//        c[event.player.uniqueId] = count + 1
-//        if (format != null) {
-//            if (shouldBroadcast)
-//                Bukkit.broadcastMessage(String.format(format, event.player.name))
-//            else
-//                event.player.sendMessage(String.format(format, event.player.name))
-//        } else {
-//            event.player.sendMessage(String.format("The water kills you, %s.", event.player.name))
-//        }
-        var message = String.format("%s realised the water is oofie.", event.player.displayName)
+
+        var message = PlaceholderAPI.setPlaceholders(event.player, config.getString("messages.died"))
         if (event.player.killer != null && event.player.killer is Player) {
-            message = String.format("%s got oofied by %s", event.player.displayName, event.player.killer.displayName)
+            message = PlaceholderAPI.setPlaceholders(event.player, config.getString("messages.killed"))
+            message = PlaceholderAPI.setPlaceholders(event.player.killer, message.replace("%player_killer", "%player"))
         }
 
         if (shouldBroadcast) {
-            if (oofiedList.contains(event.player.uniqueId)) {
+            if (config.getBoolean("limitBroadcasts") && oofiedList.contains(event.player.uniqueId)) {
                 event.player.sendMessage(message)
                 oofiedList.add(event.player.uniqueId)
             } else {

@@ -2,7 +2,7 @@ name: OofieWater
 version: 0.1
 author: TortleWortle
 main: wtf.duck.oofiewater.OofieWater
-depend: [OofieLib]
+depend: [OofieLib, PlaceholderAPI]
 softdepend: [WorldGuard]
 commands:
   oofiewater:

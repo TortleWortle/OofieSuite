@@ -1,0 +1,10 @@
+# Broadcast timeout in seconds
+broadcastDeaths: true
+limitBroadcasts: false
+broadcastTimeout: 60
+
+# Messages (using PlaceholderAPI)
+# use %player_killer_ instead of %player_ to get killer
+messages:
+  died: "%player_name% realised the water is oofie."
+  killed: "%player_name% got oofied by %player_killer_name%"
