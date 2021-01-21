@@ -1,4 +1,4 @@
-rootProject.name = "OofieHome"
+rootProject.name = "OofieSuite"
 include("OofieLib")
 include("OofieWater")
 include("OofiePVP")

@@ -4,15 +4,16 @@
     <output url="file://$MODULE_DIR$/../../../OofieWater/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../OofieWater/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../OofieWater/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../OofieWater/src/main/kotlin" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../OofieWater/src/main/kotlin" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../OofieWater/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../OofieWater/src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.4.21" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.sk89q.worldguard:worldguard-legacy:6.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: me.clip:placeholderapi:2.9.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.21" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
