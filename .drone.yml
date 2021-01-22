@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: release
 
 steps:
   - name: build
@@ -15,8 +15,4 @@ steps:
       files: dist/*
 
 trigger:
-  branch:
-    - main
-  event:
-    - push
     - tag
