@@ -2,14 +2,11 @@ kind: pipeline
 name: default
 
 steps:
-  - name: test
+  - name: build
     image: gradle:jdk8-openj9
     commands:
       - gradle assemble
       - gradle check
-  - name: build
-    image: gradle:jdk8-openj9
-    commands:
       - gradle clean build shadowJar
   - name: publish
     image: plugins/github-release
