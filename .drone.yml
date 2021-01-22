@@ -1,11 +1,11 @@
 kind: pipeline
+type: docker
 name: release
 
 steps:
   - name: build
     image: gradle:jdk8-openj9
     commands:
-      - gradle --no-daemon check
       - gradle --no-daemon clean build shadowJar
     environment:
       OOFIE_VERSION: ${DRONE_TAG}
@@ -15,7 +15,6 @@ steps:
       api_key:
         from_secret: github_api_key
       files: dist/*
-
 trigger:
   event:
     - tag
