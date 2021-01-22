@@ -1,0 +1,21 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: test
+    image: gradle:jdk8-openj9
+    commands:
+      - gradle assemble
+      - gradle check
+  - name: build
+    image: gradle:jdk8-openj9
+    commands:
+      - gradle clean build shadowJar
+  - name: publish
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: github_api_key
+      files: dist/*
+    when:
+      event: tag
