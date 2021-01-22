@@ -13,5 +13,9 @@ steps:
       api_key:
         from_secret: github_api_key
       files: dist/*
-    when:
-      event: tag
+
+trigger:
+  branch:
+    - main
+  event:
+    - tag
