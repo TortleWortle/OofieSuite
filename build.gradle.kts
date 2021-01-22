@@ -18,7 +18,7 @@ tasks {
 gradle.buildFinished {
     project.buildDir.deleteRecursively()
 }
-val v = System.getProperty("OOFIE_VERSION") ?: "DEV"
+val v = System.getenv("OOFIE_VERSION") ?: "DEV"
 
 subprojects {
     val subProject = this.project
