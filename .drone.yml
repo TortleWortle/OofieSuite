@@ -5,9 +5,8 @@ steps:
   - name: build
     image: gradle:jdk8-openj9
     commands:
-      - gradle assemble
-      - gradle check
-      - gradle clean build shadowJar
+      - gradle --no-daemon check
+      - gradle --no-daemon clean build shadowJar
   - name: publish
     image: plugins/github-release
     settings:
