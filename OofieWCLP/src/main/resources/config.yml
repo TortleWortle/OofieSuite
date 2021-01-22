@@ -1,0 +1,9 @@
+SHOP_API_URL: ""
+SHOP_API_USER: ""
+SHOP_API_SECRET: ""
+enableCommand: true
+applyOnJoin: true
+applyAutomatically: true
+products:
+  - 135:group.vip
+  - 139:group.ultimate

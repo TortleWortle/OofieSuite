@@ -20,5 +20,4 @@
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.0.6" level="project" />
   </component>
-  <component name="TestModuleProperties" production-module="OofieHome.OofieLib.main" />
 </module>
