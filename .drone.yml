@@ -15,4 +15,5 @@ steps:
       files: dist/*
 
 trigger:
+  event:
     - tag
