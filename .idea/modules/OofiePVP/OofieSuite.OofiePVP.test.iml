@@ -3,12 +3,17 @@
   <component name="NewModuleRootManager">
     <output-test url="file://$MODULE_DIR$/../../../OofiePVP/build/classes/java/test" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../../OofiePVP/src/test" />
+    <content url="file://$MODULE_DIR$/../../../OofiePVP/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/test/kotlin" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/test/resources" type="java-test-resource" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="OofieHome.OofiePVP.main" />
+    <orderEntry type="module" module-name="OofieSuite.OofiePVP.main" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.4.21" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.21" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
   </component>
+  <component name="TestModuleProperties" production-module="OofieSuite.OofiePVP.main" />
 </module>

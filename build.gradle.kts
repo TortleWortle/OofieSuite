@@ -1,11 +1,22 @@
 plugins {
     kotlin("jvm") version "1.4.21"
-    id("com.github.johnrengelman.shadow") version("6.1.0")
 }
 
 repositories {
     jcenter()
     mavenCentral()
+}
+
+// remove dist folder on clean
+tasks {
+    getByName<Delete>("clean") {
+        delete.add("dist")
+    }
+}
+
+// remove unused build folder.
+gradle.buildFinished {
+    project.buildDir.deleteRecursively()
 }
 
 subprojects {

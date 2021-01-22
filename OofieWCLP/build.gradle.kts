@@ -8,6 +8,8 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java) {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+base.archivesBaseName = "OofieWCLP-Bungee"
+
 repositories {
     mavenCentral()
     jcenter()

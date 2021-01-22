@@ -10,7 +10,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="OofieHome.OofieLib.main" />
+    <orderEntry type="module" module-name="OofieSuite.OofieLib.main" />
     <orderEntry type="library" name="Gradle: khttp:khttp:1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.4.21" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.spek:spek-junit-platform-engine:1.1.0" level="project" />
@@ -20,4 +20,5 @@
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.0.6" level="project" />
   </component>
+  <component name="TestModuleProperties" production-module="OofieSuite.OofieLib.main" />
 </module>

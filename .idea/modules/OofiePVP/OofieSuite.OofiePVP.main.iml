@@ -4,9 +4,8 @@
     <output url="file://$MODULE_DIR$/../../../OofiePVP/build/classes/java/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../OofiePVP/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/main/kotlin" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/main/kotlin" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../OofiePVP/src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />

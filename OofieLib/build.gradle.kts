@@ -1,10 +1,17 @@
 plugins {
     kotlin("jvm")
-    id("com.github.johnrengelman.shadow")
+    id("com.github.johnrengelman.shadow") version("6.1.0")
     id("java")
 }
 
 version = "0.1"
+
+// disable default jar, as the only point for this module is to load dependencies.
+// there is most definitely a better way to do this but I'm not good with java applications.
+tasks {
+    val jarTask = getByName("jar")
+    jarTask.enabled = false
+}
 
 repositories {
     jcenter()
