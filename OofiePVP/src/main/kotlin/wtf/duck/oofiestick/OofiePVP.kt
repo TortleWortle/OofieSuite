@@ -1,4 +1,4 @@
-package wtf.duck.oofiepvp
+package wtf.duck.oofiestick
 
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler

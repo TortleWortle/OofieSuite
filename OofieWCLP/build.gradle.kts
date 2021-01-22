@@ -2,8 +2,6 @@ plugins {
     kotlin("jvm")
 }
 
-version = "0.1"
-
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java) {
     kotlinOptions.jvmTarget = "1.8"
 }

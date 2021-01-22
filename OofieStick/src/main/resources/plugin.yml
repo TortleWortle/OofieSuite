@@ -1,0 +1,14 @@
+name: OofieStick
+version: 0.1
+author: TortleWortle
+main: wtf.duck.oofiestick.OofieStick
+depend: [OofieLib]
+commands:
+  oofiestick:
+    description: get stic
+    usage: /<command>
+    permission: oofiestick.use
+permissions:
+  oofiestick.use:
+    description: is sticky
+    default: op

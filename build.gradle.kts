@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.4.21"
+    id("com.corneliudascalu.autoversion") version "0.3"
 }
 
 repositories {
@@ -18,9 +19,11 @@ tasks {
 gradle.buildFinished {
     project.buildDir.deleteRecursively()
 }
+val v = autoversion.nameHyphenated
 
 subprojects {
     val subProject = this.project
+    subProject.version = v
 
     task("copyArtifacts") {
         doLast {
