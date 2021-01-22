@@ -1,6 +1,5 @@
 plugins {
     kotlin("jvm") version "1.4.21"
-    id("com.corneliudascalu.autoversion") version "0.3"
 }
 
 repositories {
@@ -19,7 +18,7 @@ tasks {
 gradle.buildFinished {
     project.buildDir.deleteRecursively()
 }
-val v = autoversion.nameHyphenated
+val v = System.getProperty("DRONE_TAG") ?: "DEV"
 
 subprojects {
     val subProject = this.project
